@@ -10,7 +10,7 @@
   </header>
   <div class="card-content">
       <p>
-          <a href =""> {{ job['employer_name'] }}</a><br>
+          <a href ="{{ url_for('employer', employer_id=job['employer_id']) }}"> {{ job['employer_name'] }}</a><br>
          {{ job['salary'] }}<br> {{ job['description'] }}
       </p>
     <div class="content">
