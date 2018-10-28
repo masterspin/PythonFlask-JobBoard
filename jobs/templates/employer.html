@@ -1,23 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
-   <div>
-        <h1>{{ employer['name'] }}</h1>
-       <div class="description">
-           <p>{{ employer['description'] }}</p>
-       </div>
-   </div>
-
+  <div>
+    <h1>{{ employer['name'] }}</h1>
+    <div class = "description">
+        <p>{{ employer['description'] }}</p>
+    </div>
+  </div>
   <h2>Jobs</h2>
-     {{ show_jobs(jobs) }}
+   {{ show_jobs(jobs) }}
   <h2>Reviews</h2>
 
-
-{% for review in reviews %}
-
+    {% for review in reviews %}
     <div class="box">
       <article class="media">
         <div class="media-left">
-            {% for _ in range(0, review['rating']) %}
+            {%  for _ in range(0, reviews['rating']) %}
                 <span class="fa fa-star checked"></span>
             {% endfor %}
         </div>
@@ -30,18 +27,13 @@
                   {{ review['review'] }}
               </p>
           </div>
-          <div class="content">
-
-          </div>
         </div>
       </article>
     </div>
-{% endfor %}
-
+    {% endfor %}
 
   <div class="columns">
     <div class="column">
-      <a href="{{ url_for('review', employer_id=employer['id']) }}"></a>
       <a class="button is-info is-pulled-right">Create Review</a>
     </div>
   </div>
